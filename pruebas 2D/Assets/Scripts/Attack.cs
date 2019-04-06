@@ -75,6 +75,11 @@ public class Attack : MonoBehaviour
         Collider2D[] enemigos = Physics2D.OverlapCircleAll(attackChecker.position, radiusAttackCheck, enemigoLayer);
         if (enemigos.Length != 0)
         {
+            foreach (Collider2D enemigo in enemigos)
+            {
+                LiveManager vida = enemigo.GetComponent<LiveManager>();
+                vida.reducirVida(10);
+            }
             CameraShakeCM.Temblor(.5f, 2, .2f);
         }
     }
