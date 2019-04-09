@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    #region Inicialización de Datos
+
     [Header("Variables de movimiento")]
     [SerializeField] private float velocidadMovimiento = 20f;
     [SerializeField] private float velocidadCaidaSlide = 5f;
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private const sbyte not = -1;
     private const byte zero = 0;
 
+    #endregion
 
     private void Start()
     {
@@ -65,7 +68,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    // ---------------------- Funciones Propias ----------------------
+    #region Funciones Propias
+
     private void Saltar()
     {
         var saltoFinal = Vector2.up * jumpForce;
@@ -119,4 +123,5 @@ public class PlayerMovement : MonoBehaviour
         escala.x *= not;
         transform.localScale = escala;
     }
+    #endregion
 }
